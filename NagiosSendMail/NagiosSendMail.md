@@ -1,16 +1,16 @@
-##Login into Nagios Server and install ssmtp and sendmail
+#Login into Nagios Server and install ssmtp and sendmail
 
 ```
 sudo apt-get install ssmtp
 sudo apt-get install sendmail
 ```
 
-##For stoping the sendmail service as well as disabling from runlevel bootup
+#For stoping the sendmail service as well as disabling from runlevel bootup
 ```
 sudo /etc/init.d/sendmail stop
 ```
 
-##Now take the backup of ssmtp.conf file and configure it.
+#Now take the backup of ssmtp.conf file and configure it.
 ```
 cp -p  /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.orig.`date +%F`
 ```
@@ -28,7 +28,7 @@ mailhub=smtp.gmail.com:587
 UseSTARTTLS=YES
 ```
 
-##Now take the backup of sendmail script.
+#Now take the backup of sendmail script.
 ```
 cp -p /usr/sbin/sendmail /usr/sbin/sendmail.orig.`date +%F`
 rm /usr/sbin/sendmail
@@ -36,12 +36,12 @@ cd /usr/sbin
 ln -s /usr/sbin/ssmtp sendmail
 ```
 
-##Send an test email , replace emailid@example.com with your email id
+#Send an test email , replace emailid@example.com with your email id
 ```
 echo "testing for nagios alerts"|mail -s "test nagiosalerts" emailid@example.com
 ```
 
-##Configure with nagios:
+#Configure with nagios:
 ```
 cd /usr/local/nagios/etc/objects
 sudo vi commands.cfg     ;(edite commands.cfg file)
@@ -59,11 +59,11 @@ define command{
 	}
 ```
 
-##Restart nagios
+#Restart nagios
 ```
 sudo service nagios restart
 ```
 
 
-##Reference Link: http://sharadchhetri.com/2013/07/16/how-to-use-email-id-of-gmail-for-sending-nagios-email-alerts/
+#Reference Link: http://sharadchhetri.com/2013/07/16/how-to-use-email-id-of-gmail-for-sending-nagios-email-alerts/
 
