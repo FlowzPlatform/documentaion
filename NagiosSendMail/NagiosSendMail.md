@@ -14,7 +14,7 @@ sudo /etc/init.d/sendmail stop
 ```
 cp -p  /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.orig.`date +%F`
 ```
-
+```
 > /etc/ssmtp/ssmtp.conf 
 
 (now edit the ssmtp.conf file with vi editor or any editor which you like)
@@ -26,6 +26,7 @@ AuthPass=OB@123456
 FromLineOverride=YES
 mailhub=smtp.gmail.com:587
 UseSTARTTLS=YES
+```
 
 ##Now take the backup of sendmail script.
 ```
