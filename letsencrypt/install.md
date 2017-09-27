@@ -58,10 +58,10 @@ The -q flag is "quiet" so that it only outputs and emails me if there was an err
 
 How To use a SSL Certificate on Apache
 --------------------------------------------------------------------------------------------------------
-sudo a2enmod ssl
-sudo service apache2 restart
-sudo nano /etc/apache2/sites-available/default-ssl.conf
-With the comments removed, the file looks something like this:
+  sudo a2enmod ssl
+  sudo service apache2 restart
+  sudo nano /etc/apache2/sites-available/default-ssl.conf
+  With the comments removed, the file looks something like this:
   <IfModule mod_ssl.c>
       <VirtualHost _default_:443>
           ServerAdmin admin@example.com
@@ -86,5 +86,5 @@ With the comments removed, the file looks something like this:
       </VirtualHost>
    </IfModule>
 
-sudo a2ensite default-ssl.conf
+   sudo a2ensite default-ssl.conf
 --------------------------------------------------------------------------------------------------------
