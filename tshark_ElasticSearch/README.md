@@ -34,20 +34,19 @@ One of the output formats supported by tshark since version 2.2 (released in Sep
  > sudo dpkg -i filebeat-5.6.2-amd64.deb
 
 8. Configure filebeat (/etc/filebeat/filebeat.yml)
- >
- filebeat.prospectors:
- - input_type: log
-  paths:
-    - /home/software/Desktop/filebeat/packets.json
-  document_type: "pcap_file"
-  json.keys_under_root: true
- output:
-  elasticsearch:
-    hosts: ["localhost:9200"]
-    index: "packets"
-    template.enabled: false
+
+ >filebeat.prospectors:
+ >- input_type: log
+ >  paths:
+ >  - /home/software/Desktop/filebeat/packets.json
+ > document_type: "pcap_file"
+ > json.keys_under_root: true
+ >output:
+ > elasticsearch:
+ >  hosts: ["localhost:9200"]
+ >  index: "packets"
+ >  template.enabled: false
 
 9. Run Filebeat service
  > sudo service filebeat start
  > sudo service filebeat status
- 
