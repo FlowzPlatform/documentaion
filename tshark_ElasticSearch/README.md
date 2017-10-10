@@ -31,6 +31,7 @@ One of the output formats supported by tshark since version 2.2 (released in Sep
 
 7. Install FileBeat to continuesly store data in elasticsearch
  > curl -L -O  https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.2-amd64.deb
+
  > sudo dpkg -i filebeat-5.6.2-amd64.deb
 
 8. Configure filebeat (/etc/filebeat/filebeat.yml)
