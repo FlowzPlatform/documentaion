@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.2.0"
+      "version": "4.6.0"
     },
     {
       "type": "panel",
@@ -30,7 +30,17 @@
     }
   ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "editable": true,
   "gnetId": null,
@@ -47,10 +57,6 @@
         {
           "columns": [
             {
-              "text": "layers.ip.ip_ip_src_host",
-              "value": "layers.ip.ip_ip_src_host"
-            },
-            {
               "text": "layers.ip.ip_ip_dst_host",
               "value": "layers.ip.ip_ip_dst_host"
             },
@@ -59,8 +65,20 @@
               "value": "layers.dns.text_dns_qry_name"
             },
             {
+              "text": "layers.ip.ip_ip_src_host",
+              "value": "layers.ip.ip_ip_src_host"
+            },
+            {
               "text": "layers.frame.frame_frame_time",
               "value": "layers.frame.frame_frame_time"
+            },
+            {
+              "text": "layers.dns.text_dns_a",
+              "value": "layers.dns.text_dns_a"
+            },
+            {
+              "text": "layers.dns.dns_dns_time",
+              "value": "layers.dns.dns_dns_time"
             }
           ],
           "datasource": "${DS_ELASTICSEARCH}",
@@ -81,6 +99,97 @@
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time",
               "type": "date"
+            },
+            {
+              "alias": "Name Server",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "link": false,
+              "pattern": "layers.ip.ip_ip_src_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Host",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_dst_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Query Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.dns.text_dns_qry_name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Time",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.frame.frame_frame_time",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Designated Name Server",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.dns.text_dns_a",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Query Resolved Time",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.dns.dns_dns_time",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
             },
             {
               "colorMode": null,
@@ -106,11 +215,13 @@
                   "field": "select field",
                   "id": "1",
                   "meta": {},
-                  "settings": {},
+                  "settings": {
+                    "size": 500
+                  },
                   "type": "raw_document"
                 }
               ],
-              "query": "layers.dns.dns_flags_dns_flags_rcode:\"0\"",
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"0\")&&(_exists_:layers.dns.text_dns_a)",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -162,6 +273,36 @@
               "type": "date"
             },
             {
+              "alias": "Host",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_dst_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Count",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "Count",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -182,10 +323,10 @@
                   "field": "layers.ip.ip_ip_dst_host",
                   "id": "2",
                   "settings": {
-                    "min_doc_count": 0,
+                    "min_doc_count": 1,
                     "order": "asc",
-                    "orderBy": "_term",
-                    "size": "10"
+                    "orderBy": "_count",
+                    "size": "5"
                   },
                   "type": "terms"
                 }
@@ -203,8 +344,8 @@
               "timeField": "@timestamp"
             }
           ],
-          "title": "Top Client",
-          "transform": "json",
+          "title": "Top Five Client",
+          "transform": "table",
           "type": "table"
         },
         {
@@ -242,6 +383,51 @@
               "type": "date"
             },
             {
+              "alias": "Name Server",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_src_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Count",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "Count",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Average Response Time",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "Average",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -262,10 +448,10 @@
                   "field": "layers.ip.ip_ip_src_host",
                   "id": "2",
                   "settings": {
-                    "min_doc_count": 0,
-                    "order": "asc",
-                    "orderBy": "_term",
-                    "size": "10"
+                    "min_doc_count": 1,
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
                   },
                   "type": "terms"
                 }
@@ -290,8 +476,8 @@
               "timeField": "@timestamp"
             }
           ],
-          "title": "Top Server",
-          "transform": "json",
+          "title": "Top Five Server",
+          "transform": "table",
           "type": "table"
         }
       ],
@@ -309,6 +495,10 @@
         {
           "columns": [
             {
+              "text": "layers.ip.ip_ip_dst_host",
+              "value": "layers.ip.ip_ip_dst_host"
+            },
+            {
               "text": "layers.dns.text_dns_qry_name",
               "value": "layers.dns.text_dns_qry_name"
             },
@@ -317,24 +507,21 @@
               "value": "layers.ip.ip_ip_src_host"
             },
             {
-              "text": "layers.ip.ip_ip_dst_host",
-              "value": "layers.ip.ip_ip_dst_host"
-            },
-            {
-              "text": "layers.dns.text_dns_a",
-              "value": "layers.dns.text_dns_a"
+              "text": "layers.frame.frame_frame_time",
+              "value": "layers.frame.frame_frame_time"
             }
           ],
           "datasource": "${DS_ELASTICSEARCH}",
+          "description": "DNS QUERY FAILED DUE TO DOMAIN NOT EXISTS",
           "filterNull": false,
           "fontSize": "100%",
-          "id": 4,
+          "id": 5,
           "links": [],
           "pageSize": 500,
           "scroll": true,
           "showHeader": true,
           "sort": {
-            "col": 0,
+            "col": 3,
             "desc": true
           },
           "span": 12,
@@ -345,105 +532,7 @@
               "type": "date"
             },
             {
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "bucketAggs": [],
-              "dsType": "elasticsearch",
-              "metrics": [
-                {
-                  "field": "select field",
-                  "id": "1",
-                  "meta": {},
-                  "settings": {},
-                  "type": "raw_document"
-                }
-              ],
-              "query": "(layers.dns.dns_dns_count_answers:\"1\")",
-              "refId": "A",
-              "timeField": "@timestamp"
-            }
-          ],
-          "title": "Query Answer",
-          "transform": "json",
-          "type": "table"
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
-        {
-          "columns": [
-            {
-              "text": "layers.dns.text_dns_qry_name",
-              "value": "layers.dns.text_dns_qry_name"
-            },
-            {
-              "text": "layers.ip.ip_ip_src_host",
-              "value": "layers.ip.ip_ip_src_host"
-            },
-            {
-              "text": "layers.ip.ip_ip_dst_host",
-              "value": "layers.ip.ip_ip_dst_host"
-            },
-            {
-              "text": "layers.frame.frame_frame_time",
-              "value": "layers.frame.frame_frame_time"
-            }
-          ],
-          "datasource": "${DS_ELASTICSEARCH}",
-          "filterNull": false,
-          "fontSize": "100%",
-          "id": 5,
-          "links": [],
-          "pageSize": 500,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 3,
-            "desc": false
-          },
-          "span": 12,
-          "styles": [
-            {
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time",
-              "type": "date"
-            },
-            {
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            },
-            {
+              "alias": "Host",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -452,7 +541,52 @@
               ],
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "decimals": 2,
-              "pattern": "/.*/",
+              "pattern": "layers.ip.ip_ip_dst_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Query Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.dns.text_dns_qry_name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Name Server",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_src_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Time",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.frame.frame_frame_time",
               "thresholds": [],
               "type": "number",
               "unit": "short"
@@ -468,16 +602,154 @@
                   "field": "select field",
                   "id": "1",
                   "meta": {},
-                  "settings": {},
+                  "settings": {
+                    "size": 500
+                  },
                   "type": "raw_document"
                 }
               ],
-              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"3\")",
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"3\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
               "refId": "A",
               "timeField": "@timestamp"
             }
           ],
-          "title": "Domain Not Exist",
+          "title": "Failed Query Due To Domain Not Exists",
+          "transform": "json",
+          "type": "table"
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "layers.ip.ip_ip_dst_host",
+              "value": "layers.ip.ip_ip_dst_host"
+            },
+            {
+              "text": "layers.dns.text_dns_qry_name",
+              "value": "layers.dns.text_dns_qry_name"
+            },
+            {
+              "text": "layers.ip.ip_ip_src_host",
+              "value": "layers.ip.ip_ip_src_host"
+            },
+            {
+              "text": "layers.frame.frame_frame_time",
+              "value": "layers.frame.frame_frame_time"
+            }
+          ],
+          "datasource": "${DS_ELASTICSEARCH}",
+          "filterNull": false,
+          "fontSize": "100%",
+          "id": 7,
+          "links": [],
+          "pageSize": null,
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "span": 12,
+          "styles": [
+            {
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "Time",
+              "type": "date"
+            },
+            {
+              "alias": "Host",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_dst_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Query Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.dns.text_dns_qry_name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Name Server",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.ip.ip_ip_src_host",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Time",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "layers.frame.frame_frame_time",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"2\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "title": "Server failed to complete the DNS request",
           "transform": "json",
           "type": "table"
         }
@@ -537,114 +809,22 @@
                   "field": "select field",
                   "id": "1",
                   "meta": {},
-                  "settings": {},
+                  "settings": {
+                    "size": 500
+                  },
                   "type": "raw_document"
                 }
               ],
-              "query": "layers.dns.dns_flags_dns_flags_rcode:\"1\"",
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"1\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
               "refId": "A",
               "timeField": "@timestamp"
             }
           ],
-          "title": "Query Format Error",
+          "title": "Failed Query Due To Format Error",
           "transform": "timeseries_to_columns",
           "type": "table"
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
-        {
-          "columns": [
-            {
-              "text": "layers.dns.text_dns_qry_name",
-              "value": "layers.dns.text_dns_qry_name"
-            },
-            {
-              "text": "layers.ip.ip_ip_src_host",
-              "value": "layers.ip.ip_ip_src_host"
-            },
-            {
-              "text": "layers.frame.frame_frame_time",
-              "value": "layers.frame.frame_frame_time"
-            }
-          ],
-          "datasource": "${DS_ELASTICSEARCH}",
-          "filterNull": false,
-          "fontSize": "100%",
-          "id": 7,
-          "links": [],
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 0,
-            "desc": true
-          },
-          "span": 12,
-          "styles": [
-            {
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time",
-              "type": "date"
-            },
-            {
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [],
-              "dsType": "elasticsearch",
-              "metrics": [
-                {
-                  "field": "select field",
-                  "id": "1",
-                  "meta": {},
-                  "settings": {},
-                  "type": "raw_document"
-                }
-              ],
-              "query": "layers.dns.dns_flags_dns_flags_rcode:\"2\"",
-              "refId": "A",
-              "timeField": "@timestamp"
-            }
-          ],
-          "title": "Server failed to complete the DNS request",
-          "transform": "json",
-          "type": "table"
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [],
       "repeat": null,
       "repeatIteration": null,
       "repeatRowId": null,
@@ -657,10 +837,19 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "datasource": "ElasticSearch",
+        "filters": [],
+        "hide": 0,
+        "label": "",
+        "name": "Filters",
+        "type": "adhoc"
+      }
+    ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -690,5 +879,5 @@
   },
   "timezone": "browser",
   "title": "DNS",
-  "version": 16
+  "version": 20
 }
