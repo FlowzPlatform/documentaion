@@ -21,8 +21,8 @@ cp -p  /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.orig.`date +%F`
 
 vi /etc/ssmtp/ssmtp.conf 
 
-AuthUser=avasaniob@gmail.com
-AuthPass=OB@123456
+AuthUser=gmail_ip
+AuthPass=gmail_password
 FromLineOverride=YES
 mailhub=smtp.gmail.com:587
 UseSTARTTLS=YES
