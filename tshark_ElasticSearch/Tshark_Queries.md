@@ -11,3 +11,6 @@
 
 # To capture particular application's data:
 >sudo tshark -f "host IP and (udp src port (application port) or udp dst port (application port))" -T ek> /path/to/folder/app.json
+
+# To capture tcp data:
+>sudo tshark -f "tcp" -T ek > /path/to/folder/tcp.json

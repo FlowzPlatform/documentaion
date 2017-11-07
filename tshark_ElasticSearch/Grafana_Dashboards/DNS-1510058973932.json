@@ -24,6 +24,12 @@
     },
     {
       "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
       "id": "table",
       "name": "Table",
       "version": ""
@@ -493,6 +499,247 @@
       "height": 250,
       "panels": [
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_ELASTICSEARCH}",
+          "fill": 1,
+          "id": 9,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sort": "total",
+            "sortDesc": true,
+            "total": true,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "server failed-{{layers.dns.text_dns_qry_name}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "layers.dns.text_dns_qry_name",
+                  "id": "3",
+                  "settings": {
+                    "min_doc_count": 1,
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "id": "4",
+                  "query": "*",
+                  "settings": {
+                    "filters": [
+                      {
+                        "label": "",
+                        "query": "(layers.dns.dns_flags_dns_flags_rcode:\"2\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")"
+                      }
+                    ]
+                  },
+                  "type": "filters"
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"2\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
+              "refId": "B",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "Domain not exists-{{layers.dns.text_dns_qry_name}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "layers.dns.text_dns_qry_name",
+                  "id": "3",
+                  "settings": {
+                    "min_doc_count": 1,
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "id": "4",
+                  "query": "*",
+                  "settings": {
+                    "filters": [
+                      {
+                        "query": "(layers.dns.dns_flags_dns_flags_rcode:\"3\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")"
+                      }
+                    ]
+                  },
+                  "type": "filters"
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"3\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "Query Format Error-{{layers.dns.text_dns_qry_name}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "layers.dns.text_dns_qry_name",
+                  "id": "3",
+                  "settings": {
+                    "min_doc_count": 1,
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "id": "4",
+                  "query": "*",
+                  "settings": {
+                    "filters": [
+                      {
+                        "query": "(layers.dns.dns_flags_dns_flags_rcode:\"1\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")"
+                      }
+                    ]
+                  },
+                  "type": "filters"
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "(layers.dns.dns_flags_dns_flags_rcode:\"1\")&&(layers.dns.dns_flags_dns_flags_response:\"1\")",
+              "refId": "C",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Failed Query",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [
+        {
           "columns": [
             {
               "text": "layers.ip.ip_ip_dst_host",
@@ -849,7 +1096,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -879,5 +1126,5 @@
   },
   "timezone": "browser",
   "title": "DNS",
-  "version": 20
+  "version": 28
 }
