@@ -23,15 +23,25 @@ and group by layers.ip.ip_ip_src_host
 >layers.frame.frame_frame_protocols:*tcp*
 and group by layers.frame.frame_frame_protocols
 
-# Data transfer of top five protocols
+# Top Five UDP Protocol
+>layers.frame.frame_frame_protocols:*udp*
+and group by layers.frame.frame_frame_protocols
+
+# Data transfer of top five TCP protocols
 >layers.frame.frame_frame_protocols:*tcp* ,
 sum layers.tcp.tcp_tcp_len ,
 group by layers.frame.frame_frame_protocols
 
+# Data transfer of top five UDP protocols
+>layers.frame.frame_frame_protocols:*udp* ,
+sum layers.data.data_data_len ,
+group by layers.frame.frame_frame_protocols
 
 # TCP data
 >layers.frame.frame_frame_protocols:"eth:ethertype:ip:tcp"
 
+# UDP data
+>layers.frame.frame_frame_protocols:"eth:ethertype:ip:udp:data"
 
 # SSL data
 >layers.frame.frame_frame_protocols:"eth:ethertype:ip:tcp:ssl"
