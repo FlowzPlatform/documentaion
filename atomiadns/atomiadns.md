@@ -77,22 +77,22 @@
 
 #  API CALL
 
+
+## To Get Zone
 curl -i -X POST -d '[ "eflowz.tk"]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/GetZone'
 
-
+## To Add Zone
 curl -i -X POST -d '[ "flowz.gq", 3600, "ns1.flowz.gq.", "avasani.officebrain.com.", 3600, 3600, 3600, 3600, [ "ns1.flowz.gq.", "ns2.flowz.gq." ], "default" ]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/AddZone';
 
+## To Set Dns Records
 curl -i -X POST -d '[ "flowz.gq", [ { "ttl" : "3600", "label" : "test2", "class" : "IN", "type" : "A", "rdata" : "192.168.1.10" } ] ]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/SetDnsRecords'
 
+## To Delete Zone
 curl -i -X POST -d '[ "obflow.tk" ]' -H 'X-Auth-Username: avasani@officebrain.com' -H 'X-Auth-Password: VmJG8F' 'http://api.atomiadns.net/pretty/atomiadns.json/DeleteZone'
 
+## To Get Nameserver
 curl -i -X POST -d '[ "ns1.eflowz.tk"]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/GetNameserver'
 
 
 
-curl -i -X POST -d '[ "eflowz2.tk", 3600, "ns1.eflowz2.tk.", "avasani.officebrain.com.", 3600, 3600, 3600, 3600, [ "ns1.eflowz2.tk.", "ns2.eflowz2.tk." ], "default2" ]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/AddZone';
---------------------------------------------------------------------------------------------------------------------------------------------
-
-curl -i -X POST -d '[ "sslflowz.tk"]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://54.85.135.193/pretty/atomiadns.json/GetZone'
-
-curl -i -X POST -d '[ "sslflowz.tk", [ { "ttl" : "3600", "label" : "_acme-challenge.www", "class" : "IN", "type" : "TXT", "rdata" : "\"toDkYgWkHoHYiabne5oVOsTJ0Q66rrn06nf5Cf1covs\"" } ] ]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://54.85.135.193/pretty/atomiadns.json/SetDnsRecords'	
+	
