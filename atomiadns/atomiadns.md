@@ -1,5 +1,5 @@
 # OS
- >  ubuntu 14.04 LTS
+ >  we must use for stable server ubuntu 14.04 LTS
 
 # Atomia DNS server
 
