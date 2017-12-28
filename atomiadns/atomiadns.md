@@ -94,5 +94,8 @@
 > curl -i -X POST -d '[ "ns1.eflowz.tk"]' -H 'X-Auth-Username: admin@flowz.com' -H 'X-Auth-Password: 12345678' 'http://34.230.75.218/pretty/atomiadns.json/GetNameserver'
 
 
-
+## Important Link
+https://www.unixmen.com/install-atomia-dns-ubuntu/
+http://atomiadns.com/get-started/
+http://atomiadns.com/get-started/install-name-server/
 	
