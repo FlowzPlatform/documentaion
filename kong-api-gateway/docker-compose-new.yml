@@ -1,0 +1,40 @@
+version: '2'
+services:
+  konga:
+    image: pantsel/konga
+    restart: always
+    environment:
+      NODE_ENV: development
+    links:
+    - kong:kong
+    ports:
+    - 1337:1337/tcp
+  kong-migration:
+    image: kong
+    restart: always
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: kong
+      KONG_PG_USER: <user-name>
+      KONG_PG_PASSWORD: <password>
+      KONG_PG_PORT: <port>
+      KONG_PG_HOST: <host>
+    command:
+    - kong
+    - migrations
+    - up
+  kong:
+    image: kong:latest
+    restart: always
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: kong
+      KONG_PG_USER: <user-name>
+      KONG_PG_PASSWORD: <password>
+      KONG_PG_PORT: <port>
+      KONG_PG_HOST: <host>
+    ports:
+    - 8070:8000/tcp
+    - 8071:8001/tcp
+    - 8443:8443/tcp
+    - 8444:8444/tcp
