@@ -41,3 +41,36 @@ $ mongoexport -h localhost:27017 --db <database name> --collection <collection n
 ```sh
 $ mongoimport -h localhost:27017 --db <database name> --collection <collection name> --file <which file to import(.json)>
 ```
+
+# Postgresql
+```
+$ sudo apt-get install postgresql
+$ sudo apt install postgresql-client-common
+```
+
+#### Export Data:
+```sh
+$ pg_dump -h <host-name> -p <port>  <database-name> > kong_database_file
+```
+Export Data From AWS Compose Postgresql:
+```sh
+$  pg_dump -U <username> -h <host-name> -p <port>  <database-name> > kong_database_file
+```
+It will ask your Postgreql password
+
+After successful export it will create file 
+
+
+
+#### Import Data:
+```sh
+$ psql -U <user-name> -h <host> -p <port>  <database-name> < kong_database_file
+```
+Import Data To AWS Compose Postgreql:
+```sh
+$ psql -U <user-name> -h <host> -p <port>  <database-name> < kong_database_file
+```
+It will ask your Postgreql password
+
+---
+
