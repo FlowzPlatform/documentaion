@@ -56,7 +56,7 @@ Export Data From AWS Compose Postgresql:
 ```sh
 $  pg_dump -U <username> -h <host-name> -p <port>  <database-name> > kong_database_file
 ```
-It will ask your Postgreql password
+It will ask your Postgresql password
 
 After successful export it will create file 
 
@@ -66,11 +66,11 @@ After successful export it will create file
 ```sh
 $ psql -U <user-name> -h <host> -p <port>  <database-name> < kong_database_file
 ```
-Import Data To AWS Compose Postgreql:
+Import Data To AWS Compose Postgresql:
 ```sh
 $ psql -U <user-name> -h <host> -p <port>  <database-name> < kong_database_file
 ```
-It will ask your Postgreql password
+It will ask your Postgresql password
 
 ---
 
