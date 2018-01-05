@@ -1,0 +1,56 @@
+version: '2'
+services:
+  lbl-api:
+    image: rancher/lb-service-haproxy:v0.7.15
+    ports:
+    - 80:80/tcp
+    - 8001:8001/tcp
+    - 8443:8443/tcp
+    - 8444:8444/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: machine=lbl-api
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.agent_service.drain_provider: 'true'
+      io.rancher.container.create_agent: 'true'
+  konga:
+    image: pantsel/konga
+    environment:
+      NODE_ENV: development
+    links:
+    - kong:kong
+    ports:
+    - 1337:1337/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: machine=api-gateway
+  kong-migration:
+    image: kong
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+    command:
+    - kong
+    - migrations
+    - up
+  kong-database:
+    image: postgres:9.4
+    environment:
+      POSTGRES_DB: kong
+      POSTGRES_USER: kong
+    ports:
+    - 5432:5432/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: machine=api-gateway
+  kong:
+    image: kong:latest
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: kong
+      KONG_PG_HOST: kong-database
+    ports:
+    - 8000:8000/tcp
+    - 8001:8001/tcp
+    - 8443:8443/tcp
+    - 8444:8444/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: machine=api-gateway
+
