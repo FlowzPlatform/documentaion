@@ -1,0 +1,17 @@
+
+for create certificate,
+
+sudo certbot -d www.mom.qaflowz.tk --manual --preferred-challenges dns -m avasani@officebrain.com certonly
+
+
+for making entry in Atomia,
+
+curl -i -X POST -d '[ "qaflowz.tk", [ { "ttl" : "3600", "label" : "_acme-challenge.www.mom", "class" : "IN", "type" : "TXT","rdata" : "\"zOD0ERGZkv3LPkme3iECXFzPnW1-F4LLKOusJ71T2aQ\"" } ] ]' -H 'X-Auth-Username: $USERNAME' -H 'X-Auth-Password: $PASSWORD' 'http://54.175.22.107/pretty/atomiadns.json/SetDnsRecords'
+
+we have to change domain,label and rdada.
+
+
+
+for using certificate,
+
+We have to give certificate,privatekey and fullchain.
