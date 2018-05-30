@@ -11,6 +11,7 @@ _main_custom:
 #    schemes: [http]
 ```
 (2)add belllow line in web/app.php file 
+
 `
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 `
@@ -28,6 +29,7 @@ $response->send();
 $kernel->terminate($request, $response);
 ```
 (3)add belllow line in web/app_dev.php file
+
 `
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 `
