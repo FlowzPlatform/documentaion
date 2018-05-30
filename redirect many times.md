@@ -14,7 +14,9 @@ _main_custom:
 `
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 `
+
 ex.
+
 ```
 $kernel = new AppKernel('prod', false);
 $kernel->loadClassCache();
@@ -29,7 +31,9 @@ $kernel->terminate($request, $response);
 `
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 `
+
 ex.
+
 ```
 $kernel = new AppKernel('prod', false);
 $kernel->loadClassCache();
