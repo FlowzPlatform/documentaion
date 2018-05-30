@@ -1,4 +1,4 @@
-#(1)comment schemes in app/config/routing_prod.yml file
+(1)comment schemes in app/config/routing_prod.yml file
 
 ex. 
 ```
@@ -10,7 +10,7 @@ _main_custom:
     resource: project/routing_custom.yml
 #    schemes: [http]
 ```
-##(2)add belllow line in web/app.php file 
+(2)add belllow line in web/app.php file 
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 
 ex.
@@ -24,7 +24,7 @@ $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
 ```
-##(3)add belllow line in web/app_dev.php file
+(3)add belllow line in web/app_dev.php file
 Request::setTrustedProxies(array('127.0.0.1', $request->server->get('REMOTE_ADDR')));
 
 ex.
