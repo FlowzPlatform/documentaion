@@ -12,6 +12,8 @@
 
 ### (3) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
+![selection_039](https://user-images.githubusercontent.com/28925482/41095412-fb208118-6a6e-11e8-898e-1328038ee83e.png)
+
 ### (4) import database in new server.
 
 ```
