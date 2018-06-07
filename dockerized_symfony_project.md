@@ -1,8 +1,12 @@
 ### process to dockerize symfony projects.
 
-(1) Take ssh (Secure Shell) and login in host. Download the solrcore,database and project from oldserver.
+(1) Take ssh (Secure Shell) and login in host. Download the solrcore and project from oldserver.
 
 ![selection_001](https://user-images.githubusercontent.com/28925482/41093020-e2b34d10-6a67-11e8-8c65-712f544a350f.png)
+
+(2) Export MySQL database from old server.
+
+![selection_035](https://user-images.githubusercontent.com/28925482/41093550-404c2504-6a69-11e8-96f5-5f8fe71f477f.png)
 
 (2) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
