@@ -6,7 +6,7 @@
 
 Copy/Sync a Remote Directory to a Local Machine
 ```
-rsync -avzh usre@server_ip:<download_directory_path> <local_path>
+rsync -avzh user@server_ip:<download_directory_path> <local_path>
 ```
 
 ### (2) Login in MySQL phpMyAdmin and export the database.
@@ -18,6 +18,11 @@ rsync -avzh usre@server_ip:<download_directory_path> <local_path>
 ### (3) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
 ![selection_039](https://user-images.githubusercontent.com/28925482/41095412-fb208118-6a6e-11e8-898e-1328038ee83e.png)
+
+Copy a Directory from Local Server to a Remote Server
+```
+rsync -avz <local_directory_path> user@serverip:<remote_server_path>
+```
 
 ### (4) import database in new server.
 
