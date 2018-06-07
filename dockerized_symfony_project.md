@@ -4,17 +4,19 @@
 
 ![selection_001](https://user-images.githubusercontent.com/28925482/41093020-e2b34d10-6a67-11e8-8c65-712f544a350f.png)
 
-(2) Export MySQL database from old server.
+(2) Login in MySQL phpMyAdmin and export database.
 
 ![selection_035](https://user-images.githubusercontent.com/28925482/41093550-404c2504-6a69-11e8-96f5-5f8fe71f477f.png)
 
-(2) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
+![selection_036](https://user-images.githubusercontent.com/28925482/41093680-9a59894c-6a69-11e8-9e4a-e5bf5fc3045c.png)
 
-(3) import database in new server.
+(3) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
-(4) start redis service in rancher for a particular project.
+(4) import database in new server.
 
-(5) do bellow changes in project:
+(5) start redis service in rancher for a particular project.
+
+(6) do bellow changes in project:
 
 ``
     1. change redis connection link which is in 
@@ -170,6 +172,6 @@ RUN  echo "extension=php_intl.so" >> /etc/php.ini
 WORKDIR /var/www/app/public_html/$projectname 
 ```
 
-(6) make docker image and push in dockerhub.
+(7) make docker image and push in dockerhub.
 
-(7) run docker image in rancher.
+(8) run docker image in rancher.
