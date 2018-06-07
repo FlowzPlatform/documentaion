@@ -20,31 +20,42 @@
           etc...
 ```
 
+``
     2. change solr connection link which is in
+``    
 ```
           app/config/project/search_config.yml,
           etc...
 ```
 
+``
     3. change MySQL connection link which is in
+``    
 ```
           app/config/project/parameters.yml,
           etc...
 ```
 
+``
     4. change MongoDB connection link which is in 
+``    
 ```
           app/config/config.yml,
           app/config/project/parameters.yml,
           etc...
 ```
 
+``
     5. change base_url connection link which is in
+``    
 ```
           app/config/project/project_seetings.yml,
           etc...
 ```
+
+``
     6. add etc/httpd/conf.d/vhost.conf in root directory and change projectname(ex. clickroel), ServerName(ex. clickroel.flowzcluster.tk).
+``    
     
 ```
 <VirtualHost *:80>
@@ -94,7 +105,9 @@
 </VirtualHost>
 ```
 
+``
     7. make Dockerfile in root directory and change projectname(ex. clickroel) and redis connection url (ex. redis-clickroel.redis-database:6379).
+``    
 
 ```
 FROM obdev/sweda-docker-client
