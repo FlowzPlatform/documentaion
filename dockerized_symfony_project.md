@@ -2,8 +2,6 @@
 
 (1) Download the solrcore,database and project from oldserver.
 
-![alt text] (/home/software/Pictures/Selection_034.png)
-
 (2) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
 (3) import database in new server.
