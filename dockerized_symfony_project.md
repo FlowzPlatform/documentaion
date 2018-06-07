@@ -14,6 +14,10 @@
 
 (4) import database in new server.
 
+```
+mysql -u root -p -h <host_ip> databasename < db_backup.sql
+```
+
 (5) start redis service in rancher for a particular project.
 
 (6) do bellow changes in project:
