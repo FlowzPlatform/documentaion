@@ -2,7 +2,7 @@
 
 (1) Download the solrcore,database and project from oldserver.
 
-![image] (https://cloud.githubusercontent.com/assets/9053854/24495974/fbf2e0cc-1547-11e7-846c-25b5fac7f6b1.png)
+![selection_034](https://user-images.githubusercontent.com/28925482/41086126-b1abee54-6a56-11e8-9c72-76766999c69e.png)
 
 (2) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
