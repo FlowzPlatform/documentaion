@@ -20,7 +20,7 @@ mysql -u root -p -h <host_ip> databasename < db_backup.sql
 
 (5) start redis service in rancher for a particular project.
 
-![selection_037](https://user-images.githubusercontent.com/28925482/41094262-4f68565a-6a6b-11e8-86f8-42427e757ea3.png)
+![selection_038](https://user-images.githubusercontent.com/28925482/41094555-45840fb6-6a6c-11e8-83d9-40bb34eaac6b.png)
 
 (6) do bellow changes in project:
 
