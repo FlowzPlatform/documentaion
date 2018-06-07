@@ -1,4 +1,4 @@
-### Process to dockerize symfony projects.
+## Process to dockerize symfony projects.
 
 (1) Take ssh (Secure Shell) and login in host. Download the solrcore and project from oldserver.
 
