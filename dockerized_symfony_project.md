@@ -4,6 +4,11 @@
 
 ![selection_001](https://user-images.githubusercontent.com/28925482/41093020-e2b34d10-6a67-11e8-8c65-712f544a350f.png)
 
+Copy/Sync a Remote Directory to a Local Machine
+```
+rsync -avzh usre@server_ip:<download_directory_path> <local_path>
+```
+
 ### (2) Login in MySQL phpMyAdmin and export the database.
 
 ![selection_035](https://user-images.githubusercontent.com/28925482/41093550-404c2504-6a69-11e8-96f5-5f8fe71f477f.png)
