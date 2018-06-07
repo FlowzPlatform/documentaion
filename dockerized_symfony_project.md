@@ -1,28 +1,28 @@
-## Process to dockerize symfony projects.
+# Process to dockerize symfony projects.
 
-(1) Take ssh (Secure Shell) and login in host. Download the solrcore and project from oldserver.
+### (1) Take ssh (Secure Shell) and login in host. Download the solrcore and project from oldserver.
 
 ![selection_001](https://user-images.githubusercontent.com/28925482/41093020-e2b34d10-6a67-11e8-8c65-712f544a350f.png)
 
-(2) Login in MySQL phpMyAdmin and export the database.
+### (2) Login in MySQL phpMyAdmin and export the database.
 
 ![selection_035](https://user-images.githubusercontent.com/28925482/41093550-404c2504-6a69-11e8-96f5-5f8fe71f477f.png)
 
 ![selection_036](https://user-images.githubusercontent.com/28925482/41093680-9a59894c-6a69-11e8-9e4a-e5bf5fc3045c.png)
 
-(3) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
+### (3) upload all solrcores in "/home/docker-client-symfony/your-awesome-core" location where solr is live.
 
-(4) import database in new server.
+### (4) import database in new server.
 
 ```
 mysql -u root -p -h <host_ip> databasename < db_backup.sql
 ```
 
-(5) start redis service in rancher for a particular project.
+### (5) start redis service in rancher for a particular project.
 
 ![selection_038](https://user-images.githubusercontent.com/28925482/41094555-45840fb6-6a6c-11e8-83d9-40bb34eaac6b.png)
 
-(6) do bellow changes in project:
+### (6) do bellow changes in project:
 
 ``
     1. change redis connection link which is in 
@@ -178,6 +178,6 @@ RUN  echo "extension=php_intl.so" >> /etc/php.ini
 WORKDIR /var/www/app/public_html/$projectname 
 ```
 
-(7) make docker image and push in dockerhub.
+### (7) make docker image and push in dockerhub.
 
-(8) run docker image in rancher.
+### (8) run docker image in rancher.
