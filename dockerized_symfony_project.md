@@ -10,13 +10,15 @@
 
 (5) do bellow changes in project:
 
-    1. change redis connection link which is in 
 ``
+    1. change redis connection link which is in 
+``    
+```
           app/config/project/project_cache.yml, 
           app/config/project/parameters.yml,
           app/config/config.yml,
           etc...
-``
+```
 
     2. change solr connection link which is in
 ```
