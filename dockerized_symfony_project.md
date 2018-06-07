@@ -1,4 +1,4 @@
-### process to dockerized symfony projects.
+### process to dockerize symfony projects.
 
 (1) Download the solrcore,database and project from oldserver.
 
