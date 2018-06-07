@@ -9,6 +9,7 @@
 (4) start redis service in rancher for a particular project.
 
 (5) do bellow changes in project:
+
     1. change redis connection link which is in 
 ```
           app/config/project/project_cache.yml, 
@@ -16,28 +17,33 @@
           app/config/config.yml,
           etc...
 ```
+
     2. change solr connection link which is in
 ```
           app/config/project/search_config.yml,
           etc...
 ```
+
     3. change MySQL connection link which is in
 ```
           app/config/project/parameters.yml,
           etc...
 ```
+
     4. change MongoDB connection link which is in 
 ```
           app/config/config.yml,
           app/config/project/parameters.yml,
           etc...
 ```
+
     5. change base_url connection link which is in
 ```
           app/config/project/project_seetings.yml,
           etc...
 ```
     6. add etc/httpd/conf.d/vhost.conf in root directory and change projectname(ex. clickroel), ServerName(ex. clickroel.flowzcluster.tk).
+    
 ```
 <VirtualHost *:80>
     ServerAdmin networks@officebeacon.com
@@ -142,5 +148,7 @@ RUN  echo "extension=php_intl.so" >> /etc/php.ini
 
 WORKDIR /var/www/app/public_html/$projectname 
 ```
+
 (6) make docker image and push in dockerhub.
+
 (7) run docker image in rancher.
