@@ -47,7 +47,7 @@ and also change wp-options table in new database
 you have to change old-URL there also with new-URL
 ```
 
-# (5) Create docekr-entrypoint.sh
+# (5) Create docker-entrypoint.sh
 
 ```
 #!/bin/bash
