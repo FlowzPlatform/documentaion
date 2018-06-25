@@ -6,6 +6,7 @@
 
 # (2) open wp-config.php file from project-code and get details of database like,
 
+```
 /** MySQL settings - You can get this info from your web host **/
 /** The name of the database for WordPress **/
 define('DB_NAME', 'database_name_here');
@@ -19,9 +20,10 @@ define('DB_PASSWORD', 'password_here');
 /** MySQL hostname **/
 define('DB_HOST', 'localhost');
 
+```
 # (3) Now create database dump from that details and get .sql file and restore that database in your Database Server.
 
-
+```
 /** to create database **/
 CREATE DATABASE databasename;    
 
@@ -34,17 +36,18 @@ GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'%';
 /** to import data in that database from "##.sql" file **/
 mysql -u root -p -h <host_ip> databasename < db_backup.sql
 
+```
 # (4) Now change database detalis with new database server and if base-url is given in wp-config.php then change it to your new url on which you want to run that site.
 
-
+```
 define('WP_HOME','htttp://www.yoursitename.com');
 define('WP_SITEURL','http://www.yoursitename.com');
 
 and also change wp-options table in new database 
 you have to change old-URL there also with new-URL
-
+```
 # (5) Create Dockerfile
-
+```
 FROM wordpress:4.9.5-php5.6-apache
 
 ADD . /var/www/html
@@ -55,7 +58,7 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN apt-get update
 RUN apt-get install nano
 RUN apt-get -y install sudo 
-
+```
 # (6) Create docekr-entrypoint.sh
 
 ```
