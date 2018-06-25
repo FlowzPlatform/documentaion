@@ -37,7 +37,7 @@ GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'%';
 mysql -u root -p -h <host_ip> databasename < db_backup.sql
 
 ```
-# (4) Now change database detalis with new database server and if base-url is given in wp-config.php then change it to your new url on which you want to run that site.
+# (4) Now change database details with new database server and if base-url is given in wp-config.php then change it to your new url on which you want to run that site.
 
 ```
 define('WP_HOME','htttp://www.yoursitename.com');
