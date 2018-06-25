@@ -46,20 +46,8 @@ define('WP_SITEURL','http://www.yoursitename.com');
 and also change wp-options table in new database 
 you have to change old-URL there also with new-URL
 ```
-# (5) Create Dockerfile
-```
-FROM wordpress:4.9.5-php5.6-apache
 
-ADD . /var/www/html
-
-#to execute permission.sh script at docker container Run time
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-
-RUN apt-get update
-RUN apt-get install nano
-RUN apt-get -y install sudo 
-```
-# (6) Create docekr-entrypoint.sh
+# (5) Create docekr-entrypoint.sh
 
 ```
 #!/bin/bash
@@ -309,7 +297,47 @@ fi
 
 exec "$@"
 ```
+# (6) Create permission.sh file
+```
+#!/bin/bash
 
+sudo useradd officebeacon --home /var/www/html/
+sudo passwd -d officebeacon
+
+cd /var/www/html
+
+sudo find . -type d -exec chmod 755 {} \;
+
+sudo find . -type f -exec chmod 644 {} \;
+
+sudo chown -R www-data:www-data wp-content
+
+sudo chmod -R 775 wp-content
+
+sudo usermod -aG  www-data officebeacon
+
+sudo chown officebeacon:www-data  .htaccess
+
+sudo chown officebeacon:www-data  index.php
+
+sudo chown officebeacon:www-data  wp-config.php
+```
+# (7) Create Dockerfile
+```
+FROM wordpress:4.9.5-php5.6-apache
+
+ADD . /var/www/html
+
+#to execute permission.sh script at docker container Run time
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+RUN apt-get update
+RUN apt-get install nano
+RUN apt-get -y install sudo 
+```
+# (8) make docker image and push in dockerhub.
+
+# (9) run docker image in rancher.
 
 
 
