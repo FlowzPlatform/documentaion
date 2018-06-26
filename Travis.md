@@ -133,44 +133,45 @@ fi
 
 SERVICE_ID=`curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' "$RANCHER_URL/v2-beta/projects/$ENV_ID/services?name=crmadmin-frontend-flowz" | jq '.data[].id' | tr -d '"'`
 echo $SERVICE_ID
-
+```
 curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" \
 -X POST \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
 -d '{
      "inServiceStrategy":{
-		        "launchConfig": {
-						      "imageUuid":"docker:'$USERNAME'/crmadmin_frontend_flowz:'$TAG'",
-									"kind": "container",
-									"labels":{
-									   "io.rancher.container.pull_image": "always",
-										 "io.rancher.scheduler.affinity:host_label": "'"$FRONT_HOST"'",
-										 "io.rancher.scheduler.affinity:container_label_soft_ne": "io.rancher.stack_service.name=front-flowz/crmadmin-frontend-flowz"
-									 },
-									"healthCheck": {
-									    "type": "instanceHealthCheck",
-											"healthyThreshold": 2,
-											"initializingTimeout": 60000,
-											"interval": 2000,
-											"name": null,
-											"port": 80,
-											"recreateOnQuorumStrategyConfig": {
-													         "type": "recreateOnQuorumStrategyConfig",
-																	 "quorum": 1
-															},
-											"reinitializingTimeout": 60000,
-											"requestLine": "GET \"http://localhost\" \"HTTP/1.0\"",
-											"responseTimeout": 60000,
-											"strategy": "recreateOnQuorum",
-											"unhealthyThreshold": 3
-										},
-									"networkMode": "managed"
-								}
+		    "launchConfig": {
+				  "imageUuid":"docker:'$USERNAME'/crmadmin_frontend_flowz:'$TAG'",
+				 	"kind": "container",
+					"labels":{
+						   "io.rancher.container.pull_image": "always",
+							 "io.rancher.scheduler.affinity:host_label": "'"$FRONT_HOST"'",
+							 "io.rancher.scheduler.affinity:container_label_soft_ne": "io.rancher.stack_service.name=front-flowz/crmadmin-frontend-flowz"
+						 },
+					"healthCheck": {
+					    "type": "instanceHealthCheck",
+							"healthyThreshold": 2,
+							"initializingTimeout": 60000,
+							"interval": 2000,
+							"name": null,
+							"port": 80,
+							"recreateOnQuorumStrategyConfig": {
+											         "type": "recreateOnQuorumStrategyConfig",
+															 "quorum": 1
+														},
+							"reinitializingTimeout": 60000,
+							"requestLine": "GET \"http://localhost\" \"HTTP/1.0\"",
+							"responseTimeout": 60000,
+							"strategy": "recreateOnQuorum",
+							"unhealthyThreshold": 3
 						},
+					"networkMode": "managed"
+				}
+			},
 			"toServiceStrategy":null
 		}' \
 $RANCHER_URL/v2-beta/projects/$ENV_ID/services/$SERVICE_ID?action=upgrade
+```
 ```
 
 ## (3) Add finish.sh file in Root directory for replacing old image with new image in rancher.
