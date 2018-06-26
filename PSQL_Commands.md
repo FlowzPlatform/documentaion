@@ -73,7 +73,8 @@
 
 (11) export dabase:
 
-```  1. Login webhosting account via SSH.
+```  
+     1. Login webhosting account via SSH.
         in the container you have to change User to postgres with "su - postgres"
         
      2. Type this command and replace the username and dbname.
