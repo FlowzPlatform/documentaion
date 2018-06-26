@@ -4,6 +4,8 @@
 ```
 First we have to build docker image of the code. Then push that image in to docker hub. After that upgrade those image in rancher.
 ```
+![selection_048](https://user-images.githubusercontent.com/28925482/41890979-c61d74b0-792f-11e8-8ba2-3b72be884297.png)
+
 ## (1) Make .travis.yml file in Root directory of project.
 
 write image_name(ex. crmadmin_frontend_flowz) according to your project. And pass environment variables through travis. 
