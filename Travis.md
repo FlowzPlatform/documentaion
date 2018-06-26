@@ -213,3 +213,5 @@ echo "waiting for service to upgrade "
 ```
 
 ## (4)enable the repository you want to build
+
+![selection_046](https://user-images.githubusercontent.com/28925482/41890059-67e85418-792b-11e8-8411-3559efaec188.png)
