@@ -1,6 +1,6 @@
 # Travis CI is a hosted, distributed continuous integration service for open source & private projects.
 
-### purpose:
+### Purpose:
 ```
 First we have to build docker image of the code. Then push that image in to docker hub. After that upgrade those image in rancher.
 ```
