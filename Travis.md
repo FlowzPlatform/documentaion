@@ -1,7 +1,7 @@
 # Travis CI is a hosted, distributed continuous integration service for open source & private projects.
 
 
-## (1) make .travis.yml file in Root directory of project.
+## (1) Make .travis.yml file in Root directory of project.
 
 write image_name(ex. crmadmin_frontend_flowz) according to your project. And pass environment variables through travis. 
 
@@ -68,7 +68,7 @@ notifications:
     on_success: always
     on_failure: always
 ```
-## (2) add upgrade.sh file in Root directory for upgrading rancher service.
+## (2) Add upgrade.sh file in Root directory for upgrading rancher service.
 
 store different branch values in one variable and then use it in upgrade command.
 
@@ -138,7 +138,7 @@ curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" \
 $RANCHER_URL/v2-beta/projects/$ENV_ID/services/$SERVICE_ID?action=upgrade
 ```
 
-## (3) add finish.sh file in Root directory for replacing old image with new image in rancher.
+## (3) Add finish.sh file in Root directory for replacing old image with new image in rancher.
 
 ```
 if [ "$TRAVIS_BRANCH" = "master" ]
@@ -212,11 +212,10 @@ echo "waiting for service to upgrade "
     done
 ```
 
-## (4)pass environment variables through travis.
+## (4) Pass environment variables through travis.
 
 ![selection_047](https://user-images.githubusercontent.com/28925482/41890266-68e13c26-792c-11e8-81eb-3ac6e5a119cb.png)
 
-## (5)enable the repository you want to build
-
+## (5) Enable the repository you want to build.
 
 ![selection_046](https://user-images.githubusercontent.com/28925482/41890059-67e85418-792b-11e8-8411-3559efaec188.png)
