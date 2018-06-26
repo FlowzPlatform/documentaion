@@ -133,7 +133,7 @@ fi
 
 SERVICE_ID=`curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' "$RANCHER_URL/v2-beta/projects/$ENV_ID/services?name=crmadmin-frontend-flowz" | jq '.data[].id' | tr -d '"'`
 echo $SERVICE_ID
-```
+
 curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" \
 -X POST \
 -H 'Accept: application/json' \
@@ -171,7 +171,7 @@ curl -u ""$RANCHER_ACCESSKEY":"$RANCHER_SECRETKEY"" \
 			"toServiceStrategy":null
 		}' \
 $RANCHER_URL/v2-beta/projects/$ENV_ID/services/$SERVICE_ID?action=upgrade
-```
+
 ```
 
 ## (3) Add finish.sh file in Root directory for replacing old image with new image in rancher.
