@@ -1,5 +1,5 @@
-**This documentaion is for "TO create FTP User which is Ristricted to it's HOME directory".
-------------------------------------------------------------------------------------------------
+"TO create FTP User which is Ristricted to it's HOME directory."
+---------------------------------------------------------------
 
 # (1) First check vsftpd status
 
