@@ -1,3 +1,6 @@
+**This documentaion is for "TO create FTP User which is Ristricted to it's HOME directory".
+------------------------------------------------------------------------------------------------
+
 # (1) First check vsftpd status
 
 ```
@@ -47,22 +50,16 @@ firewall-cmd --reload
 now you can connect FTP and user is restricted with home directory only but in sftp user is not restricted so we have to turn off SFTP
 ```
 
-
-TO restrict SFTP ADD 
-
+# (7) TO restrict SFTP Add in /etc/ssh/sshd_config file
+```
 Match User USERNAME,USERNAME2
 PasswordAuthentication no
+```
+```
+This will also deny SSH connection from that users.
+```
 
-in /etc/ssh/sshd_config file
-
-**************************************************************************
-
-Restart SSHD service with
-
+# (8) Restart SSHD service with
+```
 sudo systemctl restart sshd      OR      sudo service sshd restart
-
-
-************************************************************************
-
-
-END
+```
