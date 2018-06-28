@@ -12,7 +12,7 @@ If vsftpd is not installed then install it first with
 apt-get install vsfptd      OR     yum install vsftpd
 ```
 
-# (2) Do change in /etc/vsftpd.conf file
+## (2) Do change in /etc/vsftpd.conf file
 ```
 uncomment
 
@@ -25,7 +25,7 @@ And add this
 
 allow_writeable_chroot=YES
 ```
-# (3) Restart vsftpd service with
+### (3) Restart vsftpd service with
 ```
 sudo systemctl restart vsftpd      OR      sudo service vsftpd restart
 ```
