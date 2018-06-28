@@ -25,6 +25,9 @@ Like : CPU usage, Memory, Hard-disk, Network.
 ```
               (1) Variables's value :  ---> node_exporter's ip
                                        ---> Cadvisor's ip
+                                       
+              (2) in CPU Graph : ---> instance value (node_exporter's ip)
+                                 --->  container image name
 ```
 ***                         
                          
