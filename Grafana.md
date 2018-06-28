@@ -1,4 +1,4 @@
-# (1) From the CATALOG section in rancher ADD Prometheus.
+### (1) From the CATALOG section in rancher ADD Prometheus.
 ```
 This will install all the requirements for Grafana and Prometheus, 
 Like : node_exporter, Cadvisor, Grafana and Prometheus.
