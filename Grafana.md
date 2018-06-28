@@ -15,5 +15,5 @@ Like : CPU usage, Memory, Hard-disk, Network.
 ```
 ### (5) Best way is to to import dashboard from .json file 
 ```
-[Mysql-monitoring.jason](FlowzPlatform/documentation/blob/master/Flowz_Grafana_Dashboard/MY-SQL%20monitoring-1530192869956.json)
+[Mysql-monitoring.jason](https://github.com/FlowzPlatform/documentation/blob/master/Flowz_Grafana_Dashboard/MY-SQL%20monitoring-1530192869956.json)
 ```
