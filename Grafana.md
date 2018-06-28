@@ -13,3 +13,4 @@ Enter Default username: admin
 ```
 Like : CPU usage, Memory, Hard-disk, Network. 
 ```
+### (5) Best way is to to import dashboard from .json file 
