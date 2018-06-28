@@ -47,7 +47,8 @@ firewall-cmd --reload
 ```
 # (6) Now you can connect to FTP
 ```
-now you can connect FTP and user is restricted with home directory only but in sftp user is not restricted so we have to turn off SFTP
+now you can connect FTP and user is restricted with home directory only.
+But in sftp user is not restricted so we have to turn off SFTP
 ```
 
 # (7) TO restrict SFTP Add in /etc/ssh/sshd_config file
