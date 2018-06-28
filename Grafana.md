@@ -17,3 +17,10 @@ Like : CPU usage, Memory, Hard-disk, Network.
 
 
    [Mysql-monitoring.json](https://github.com/FlowzPlatform/documentation/blob/master/Flowz_Grafana_Dashboard/MY-SQL%20monitoring-1530192869956.json)
+
+### (6) now you have to change in this dashboard.
+```
+  #### (1) Variables's value --- node_exporter's ip
+                         --- Cadvisor's ip
+```                         
+                         
