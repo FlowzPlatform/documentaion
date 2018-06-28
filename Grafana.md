@@ -15,13 +15,13 @@ Like : CPU usage, Memory, Hard-disk, Network.
 ```
 ### (5) Best way is to import dashboard from .json file 
 
-```
+
    [Mysql-monitoring.json](https://github.com/FlowzPlatform/documentation/blob/master/Flowz_Grafana_Dashboard/MY-SQL%20monitoring-1530192869956.json)
-   ```
+
 
 ### (6) now you have to change in this dashboard.
-```
-  #### (1) Variables's value --- node_exporter's ip
+
+*** (1) Variables's value --- node_exporter's ip
                          --- Cadvisor's ip
-```                         
+***                         
                          
