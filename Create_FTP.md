@@ -1,13 +1,12 @@
 # (1) First check vsftpd status
 
 ```
-service vsftpd status
+   service vsftpd status
 ```
 ```
-If vsftpd is not installed then install it first
-```
-```
-apt-get install vsfptd      OR     yum install vsftpd
+If vsftpd is not installed then install it first with
+
+   apt-get install vsfptd      OR     yum install vsftpd
 ```
 
 # (2) Do change in /etc/vsftpd.conf file
