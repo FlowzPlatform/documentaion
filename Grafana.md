@@ -21,7 +21,8 @@ Like : CPU usage, Memory, Hard-disk, Network.
 
 ### (6) now you have to change in this dashboard.
 
-*** (1) Variables's value --- node_exporter's ip
+*** 
+(1) Variables's value --- node_exporter's ip
                          --- Cadvisor's ip
 ***                         
                          
