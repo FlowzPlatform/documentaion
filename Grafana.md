@@ -14,3 +14,6 @@ Enter Default username: admin
 Like : CPU usage, Memory, Hard-disk, Network. 
 ```
 ### (5) Best way is to to import dashboard from .json file 
+```
+https://github.com/FlowzPlatform/documentation/blob/master/Flowz_Grafana_Dashboard/MY-SQL%20monitoring-1530192869956.json
+```
