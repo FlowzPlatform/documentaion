@@ -24,3 +24,7 @@ sudo docker run --detach \
 docker ps 
 docker logs gitlab
 ```
+### (5) Also make change in:
+```
+Also make changes in Develope, Qa and Staging Environment in .netrc file
+```
