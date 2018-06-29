@@ -22,4 +22,5 @@ sudo docker run --detach \
 ### (4) Check status of new gitlab container:
 ```
 docker ps 
+docker logs gitlab
 ```
