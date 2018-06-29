@@ -19,3 +19,7 @@ sudo docker run --detach \
    --volume /srv/gitlab/data:/var/opt/gitlab \
    gitlab/gitlab-ce:latest
 ```
+### (4) Check status of new gitlab container:
+```
+docker ps 
+```
