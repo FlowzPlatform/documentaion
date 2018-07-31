@@ -89,4 +89,6 @@
 
 ```
     psql -h <host_ip> -p <Port_no> -d <database_name> -U <database_user> -f <file_name>
+    
+    gunzip < dump.gz | psql -h <host_ip> -d <database_name> -U <username>
 ```
