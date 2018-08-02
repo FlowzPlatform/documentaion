@@ -257,3 +257,7 @@ echo "waiting for service to upgrade "
 ![selection_046](https://user-images.githubusercontent.com/28925482/41890059-67e85418-792b-11e8-8411-3559efaec188.png)
 
 
+
+
+
+rsync -avzh --exclude='*.zip' root@104.130.170.121:/var/www/html/evans .
