@@ -1,4 +1,4 @@
-# Move all host to new server
+# Move all host to new Server
 
 ## (1) Take backup of rethinkdb,ldap server and websites.
 
