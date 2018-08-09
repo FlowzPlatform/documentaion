@@ -5,16 +5,24 @@
 ```
 rethindb backup for develop:
 rsync -avzh root@<rethinkdb_host_ip>:/rethinkdb-data-dev/_data <local_path>
+```
 
+```
 rethindb backup for qa:
 rsync -avzh root@<rethinkdb_host_ip>:/rethinkdb-data-qa/_data <local_path>
+```
 
+```
 rethindb backup for staging:
 rsync -avzh root@<rethinkdb_host_ip>:/rethinkdb-data <local_path>
+```
 
+```
 ldap backup:
 rsync -avzh root@<cluster_server_ip>:/openldapdocker <local_path>
+```
 
+```
 NFS server backup:
 rsync -avzh root@<client_webroot_ip>:/nfs <local_path>
 ```
