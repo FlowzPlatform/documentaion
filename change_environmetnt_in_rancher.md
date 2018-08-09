@@ -13,3 +13,5 @@
 (4) Start all service using docker-compose.yml and rancher-compose.yml files.
 
 (5) Upgrade those service which used NFS server by adding "rancher-nfs" in Volume Driver.
+
+![selection_061](https://user-images.githubusercontent.com/28925482/43885647-155efc14-9bd7-11e8-8b1f-d3e72163d826.png)
