@@ -43,6 +43,7 @@ rsync -avzh <local_path_to_data> root@<remote_host>:/rethinkdb-data-dev/
 
 ## (7) Start all service using docker-compose.yml and rancher-compose.yml files.
 
+![selection_066](https://user-images.githubusercontent.com/28925482/43890924-b4382a0a-9be5-11e8-8847-cb0944cb33a7.png)
 
 ## (8) Upgrade those service which used NFS server by adding "rancher-nfs" in Volume Driver.
 
