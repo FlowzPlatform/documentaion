@@ -33,19 +33,24 @@ rsync -avzh <local_path_to_data> root@<remote_host>:/rethinkdb-data-dev/
 
 ## (5) Add certificate in rancher.
 
+![selection_057](https://user-images.githubusercontent.com/28925482/43885508-b4c01294-9bd6-11e8-9ce3-62bfad6ae1dd.png)
 
 ## (6) create NFS server using rancher CATALOG.
 
+![selection_058](https://user-images.githubusercontent.com/28925482/43885563-e4fcc826-9bd6-11e8-93cb-189c25b44e09.png)
 
 ## (7) Start all service using docker-compose.yml and rancher-compose.yml files.
 
 
 ## (8) Upgrade those service which used NFS server by adding "rancher-nfs" in Volume Driver.
 
+![selection_061](https://user-images.githubusercontent.com/28925482/43885647-155efc14-9bd7-11e8-8b1f-d3e72163d826.png)
 
 ## (9) Change environment IP of service-api-backend.
  
+``` 
 change IP of environment variable serverARecord in service-api-backend-flowz with client-webroot server IP.
+```
 
 ## (10) Change entry in Atomia DNS.
 
