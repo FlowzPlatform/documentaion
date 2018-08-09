@@ -1,6 +1,6 @@
-## Move all host to new server
+# Move all host to new server
 
-# (1) Take backup of rethinkdb,ldap server and websites.
+## (1) Take backup of rethinkdb,ldap server and websites.
 
 ```
 rethindb backup for develop:
@@ -19,35 +19,35 @@ NFS server backup:
 rsync -avzh root@<client_webroot_ip>:/nfs <local_path>
 ```
 
-# (2) Purchase server from any cloud service provider.
+## (2) Purchase server from any cloud service provider.
 
-# (3) Sync all backup with new server.
+## (3) Sync all backup with new server.
 
 ```
 rsync -avzh <local_path_to_data> root@<remote_host>:/rethinkdb-data-dev/
 ```
 
-# (4) Add server in rancher.
+## (4) Add server in rancher.
 
 
 
-# (5) Add certificate in rancher.
+## (5) Add certificate in rancher.
 
 
-# (6) create NFS server using rancher CATALOG.
+## (6) create NFS server using rancher CATALOG.
 
 
-# (7) Start all service using docker-compose.yml and rancher-compose.yml files.
+## (7) Start all service using docker-compose.yml and rancher-compose.yml files.
 
 
-# (8) Upgrade those service which used NFS server by adding "rancher-nfs" in Volume Driver.
+## (8) Upgrade those service which used NFS server by adding "rancher-nfs" in Volume Driver.
 
 
-# (9) Change environment IP of service-api-backend.
+## (9) Change environment IP of service-api-backend.
  
 change IP of environment variable serverARecord in service-api-backend-flowz with client-webroot server IP.
 
-# (10) Change entry in Atomia DNS.
+## (10) Change entry in Atomia DNS.
 
 ```
 for develop:
