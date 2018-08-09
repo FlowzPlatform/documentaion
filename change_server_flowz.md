@@ -49,7 +49,7 @@ rsync -avzh <local_path_to_data> root@<remote_host>:/rethinkdb-data-dev/
 
 ![selection_061](https://user-images.githubusercontent.com/28925482/43885647-155efc14-9bd7-11e8-8b1f-d3e72163d826.png)
 
-## (9) Change environment IP of service-api-backend.
+## (9) Change environment variable value of service-api-backend.
  
 ``` 
 change IP of environment variable serverARecord in service-api-backend-flowz with client-webroot server IP.
