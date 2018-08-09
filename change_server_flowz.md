@@ -21,6 +21,8 @@ rsync -avzh root@<client_webroot_ip>:/nfs <local_path>
 
 ## (2) Purchase server from any cloud service provider.
 
+![selection_066_11](https://user-images.githubusercontent.com/28925482/43890777-4ad0a3a8-9be5-11e8-8b9a-10a49014847c.png)
+
 ## (3) Sync all backup with new server.
 
 ```
