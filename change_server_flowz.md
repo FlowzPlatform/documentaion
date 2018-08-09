@@ -31,7 +31,7 @@ rsync -avzh <local_path_to_data> root@<remote_host>:/rethinkdb-data-dev/
 
 ## (4) Add server in rancher.
 
-
+![selection_065](https://user-images.githubusercontent.com/28925482/43890863-80b63834-9be5-11e8-8782-9933025797dd.png)
 
 ## (5) Add certificate in rancher.
 
