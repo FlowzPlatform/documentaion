@@ -2,6 +2,8 @@
 
 (1) Add certificate in rancher.
 
+![selection_057](https://user-images.githubusercontent.com/28925482/43885508-b4c01294-9bd6-11e8-9ce3-62bfad6ae1dd.png)
+
 (2) create NFS server using rancher CATALOG.
 
 (3) Stop all host in old environment and add all host in new environment.
