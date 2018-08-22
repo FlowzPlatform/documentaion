@@ -9,7 +9,7 @@
 (2) create database:
 
 ```
-     CREATE DATABASE databasename;
+     CREATE DATABASE databasename; 
 ```
 
 (3) drop database:
