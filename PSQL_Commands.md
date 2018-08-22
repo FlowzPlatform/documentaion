@@ -3,7 +3,7 @@
 (1) Login:
 
 ```
-    psql -h <Host_ip> -p <port_no> -U <database_user> -d <database_name> -W
+   psql -h <Host_ip> -p <port_no> -U <database_user> -d <database_name> -W
 ```
 
 (2) create database:
