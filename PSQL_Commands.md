@@ -82,7 +82,7 @@
          
                   OR
                   
-     1. you can create dump via phppgadmin web interface.
+     1. you can create dump via phppgadmin web interface. 
 ```
 
 (12) import database:
