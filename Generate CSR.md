@@ -1,4 +1,4 @@
-## Generate a certificate signing request (CSR) for your Apache Web server.
+# Generate a certificate signing request (CSR) for your Apache Web server.
 
 ### (1) Log in to your server's terminal (SSH).
 
