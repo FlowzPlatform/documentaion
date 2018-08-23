@@ -7,4 +7,12 @@
 ```
 openssl req -new -newkey rsa:2048 -nodes -keyout yourdomain.key -out yourdomain.csr
 ```
-(3) Enter the requested information from Common Name, Organization, Organization Unit, City or Locality, State or Province, Country.
+(3) Enter the requested information from:
+```
+Common Name
+Organization
+Organization Unit
+City or Locality
+State or Province
+Country
+```
