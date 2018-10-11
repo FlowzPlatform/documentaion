@@ -12,18 +12,24 @@ If vsftpd is not installed then install it first with
 apt-get install vsfptd      OR     yum install vsftpd
 ```
 
-## (2) Do change in /etc/vsftpd.conf file
+## (2) Do change in /etc/vsftpd/vsftpd.conf file
 ```
 uncomment
 
 chroot_local_user=YES
 chroot_list_enable=YES
-chroot_list_file=/etc/vsftpd.chroot_list
+
+make change
+chroot_list_file=/etc/vsftpd/ftpusers
 ```
 ```
 And add this
-
 allow_writeable_chroot=YES
+
+Add at last
+pasv_enable=YES
+pasv_min_port=10090
+pasv_max_port=10100
 ```
 ## (3) Restart vsftpd service with
 ```
