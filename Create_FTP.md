@@ -27,6 +27,7 @@ allow_writeable_chroot=YES
 ```
 ## (3) Restart vsftpd service with
 ```
+sudo systemctl enable vsftpd
 sudo systemctl restart vsftpd      OR      sudo service vsftpd restart
 ```
 
