@@ -15,11 +15,10 @@ apt-get install vsfptd      OR     yum install vsftpd
 ## (2) Do change in /etc/vsftpd/vsftpd.conf file
 ```
 uncomment
-
 chroot_local_user=YES
 chroot_list_enable=YES
 
-make change
+uncomment and make change
 chroot_list_file=/etc/vsftpd/ftpusers
 ```
 ```
