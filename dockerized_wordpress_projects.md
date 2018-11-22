@@ -339,6 +339,7 @@ RUN apt-get -y install sudo
 
 # (9) run docker image in rancher.
 
+
 # wordpress permission link:
 https://stackoverflow.com/questions/18352682/correct-file-permissions-for-wordpress
 
