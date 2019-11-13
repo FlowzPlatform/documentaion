@@ -41,6 +41,13 @@ $ mongoexport -h localhost:27017 --db <database name> --collection <collection n
 ```sh
 $ mongoimport -h localhost:27017 --db <database name> --collection <collection name> --file <which file to import(.json)>
 ```
+# VirtualDb Restore
+
+```sh
+$ mongorestore -d virtualDB mongo_backup/videovirtualdb/
+
+```
+
 ---
 # Postgresql
 ```
